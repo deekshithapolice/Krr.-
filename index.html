@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartCart AI | Recommendation System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <span class="logo-icon">✦</span>
+        <span>Smart<span>Cart</span><small>AI</small></span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#how">How It Works</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button id="themeBtn">☾</button>
+        <button id="favoriteBtn">♡ <span id="favoriteCount">0</span></button>
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="ai-badge">
+            ✦ AI-Powered Shopping Intelligence
+        </div>
+
+        <h1>
+            Shop Smarter with
+            <span>AI-Powered</span>
+            Recommendations
+        </h1>
+
+        <p>
+            Discover products you'll love using content-based
+            recommendations that understand category, brand,
+            price, colour and product features.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#products" class="btn primary">
+                Explore Products →
+            </a>
+
+            <a href="#recommendations" class="btn secondary">
+                Get Recommendations ✦
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>20+</strong>
+                <span>Products</span>
+            </div>
+
+            <div>
+                <strong>5</strong>
+                <span>Features</span>
+            </div>
+
+            <div>
+                <strong>AI</strong>
+                <span>Similarity Engine</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-visual">
+
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+
+        <div class="ai-card">
+
+            <div class="card-header">
+                <b>SmartCart AI</b>
+                <span>● ● ●</span>
+            </div>
+
+            <div class="mini-search">
+                🔍 Search products...
+            </div>
+
+            <div class="mini-product">
+
+                <div class="mini-image">🎧</div>
+
+                <div>
+                    <b>ProSound X9</b>
+                    <small>Wireless Headphones</small>
+                    <strong>₹3,499</strong>
+                </div>
+
+                <span class="match">92%</span>
+
+            </div>
+
+            <div class="mini-product">
+
+                <div class="mini-image pink">⌚</div>
+
+                <div>
+                    <b>Pulse Watch S</b>
+                    <small>Smart Watch</small>
+                    <strong>₹4,299</strong>
+                </div>
+
+                <span class="match blue">84%</span>
+
+            </div>
+
+            <div class="ai-message">
+                ✦ AI found similar products
+            </div>
+
+        </div>
+
+        <div class="floating-card top-card">
+            ✦ <b>Smart Match</b>
+            <small>Content similarity detected</small>
+        </div>
+
+        <div class="floating-card bottom-card">
+            🛍️ <b>20+ Products</b>
+            <small>Ready to explore</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="section" id="how">
+
+    <div class="section-title center">
+
+        <span>HOW IT WORKS</span>
+
+        <h2>
+            From Your Interest to
+            <strong>Smart Matches</strong>
+        </h2>
+
+        <p>
+            The recommendation engine compares product characteristics
+            and finds products with similar content.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number purple">01</div>
+            <h3>Select a Product</h3>
+            <p>Choose a product you are interested in.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="step-number blue">02</div>
+            <h3>Extract Features</h3>
+            <p>Analyse category, brand, price, colour and features.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="step-number pink">03</div>
+            <h3>Compare Content</h3>
+            <p>Compare product characteristics.</p>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="step">
+            <div class="step-number cyan">04</div>
+            <h3>Recommend</h3>
+            <p>Rank similar products using similarity scores.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="section light-section">
+
+    <div class="section-title">
+
+        <span>EXPLORE</span>
+
+        <h2>
+            Popular <strong>Categories</strong>
+        </h2>
+
+    </div>
+
+    <div class="category-grid" id="categoryGrid"></div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="products">
+
+    <div class="section-title">
+
+        <span>PRODUCT EXPLORER</span>
+
+        <h2>
+            Find Your Next
+            <strong>Favourite</strong>
+        </h2>
+
+    </div>
+
+
+    <div class="filters">
+
+        <div class="search">
+            🔍
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products, brands or features..."
+            >
+        </div>
+
+        <select id="categoryFilter">
+            <option value="all">All Categories</option>
+        </select>
+
+        <select id="brandFilter">
+            <option value="all">All Brands</option>
+        </select>
+
+        <select id="colourFilter">
+            <option value="all">All Colours</option>
+        </select>
+
+        <select id="priceFilter">
+            <option value="all">All Prices</option>
+            <option value="0-5000">Under ₹5,000</option>
+            <option value="5000-20000">₹5,000 - ₹20,000</option>
+            <option value="20000-50000">₹20,000 - ₹50,000</option>
+            <option value="50000-200000">Above ₹50,000</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="featured">Featured</option>
+            <option value="low">Price Low → High</option>
+            <option value="high">Price High → Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="name">Name A → Z</option>
+        </select>
+
+    </div>
+
+
+    <div class="product-grid" id="productGrid"></div>
+
+</section>
+
+
+<!-- ================= RECOMMENDATIONS ================= -->
+
+<section class="section recommendation-section" id="recommendations">
+
+    <div class="section-title center">
+
+        <span>AI RECOMMENDATION ENGINE</span>
+
+        <h2>
+            Your
+            <strong>Smart Recommendations</strong>
+        </h2>
+
+        <p id="recommendationText">
+            Select a product to generate similar products.
+        </p>
+
+    </div>
+
+
+    <div class="selected-product" id="selectedProduct">
+
+        <div class="placeholder">
+
+            <div class="star">✦</div>
+
+            <div>
+                <b>No product selected</b>
+                <p>
+                    Click "Get Similar Products" on any product.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="recommendation-grid" id="recommendationGrid">
+
+        <div class="empty">
+
+            <div>✦</div>
+
+            <h3>
+                Your AI recommendations will appear here
+            </h3>
+
+            <p>
+                Select a product and let the similarity engine
+                compare its content.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PERSONALIZED ================= -->
+
+<section class="section light-section">
+
+    <div class="section-title">
+
+        <span>PERSONALIZED SHOPPING</span>
+
+        <h2>
+            Recommended
+            <strong>For You</strong>
+        </h2>
+
+    </div>
+
+
+    <div class="tabs">
+
+        <button class="active" data-tab="similar">
+            Because You Viewed This
+        </button>
+
+        <button data-tab="category">
+            More From This Category
+        </button>
+
+        <button data-tab="favourites">
+            You May Also Like
+        </button>
+
+    </div>
+
+
+    <div class="product-grid" id="personalGrid"></div>
+
+</section>
+
+
+<!-- ================= AI EXPLANATION ================= -->
+
+<section class="section explanation">
+
+    <div>
+
+        <div class="section-title">
+
+            <span>AI / ML CONCEPT</span>
+
+            <h2>
+                What is
+                <strong>Content-Based Recommendation?</strong>
+            </h2>
+
+        </div>
+
+        <p class="explanation-text">
+
+            A content-based recommendation system recommends products
+            by comparing the characteristics of products that a user
+            has already shown interest in.
+
+        </p>
+
+
+        <div class="formula">
+
+            <span>SIMILARITY SCORE</span>
+
+            <strong>
+                Category × 30% +
+                Features × 30% +
+                Brand × 15% +
+                Price × 15% +
+                Colour × 10%
+            </strong>
+
+        </div>
+
+
+        <ul class="checks">
+
+            <li>✓ No random recommendations</li>
+            <li>✓ Easy-to-understand scoring</li>
+            <li>✓ Product content drives recommendations</li>
+            <li>✓ Suitable for a B.Tech AIML project</li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="example">
+
+        <div class="example-title">
+            <span>USER SELECTS</span>
+            <h3>Wireless Headphones</h3>
+        </div>
+
+        <div class="feature">
+            <span>Category</span>
+            <b>Electronics</b>
+        </div>
+
+        <div class="feature">
+            <span>Brand</span>
+            <b>ProSound</b>
+        </div>
+
+        <div class="feature">
+            <span>Price</span>
+            <b>₹2,000 - ₹4,000</b>
+        </div>
+
+        <div class="feature">
+            <span>Features</span>
+            <b>Bluetooth · Wireless · ANC</b>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="ai-result">
+
+            <span>✦</span>
+
+            <div>
+                <b>AI finds similar products</b>
+                <small>Based on product content</small>
+            </div>
+
+            <strong>92%</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="section light-section" id="dashboard">
+
+    <div class="section-title">
+
+        <span>YOUR ACTIVITY</span>
+
+        <h2>
+            Smart Shopping
+            <strong>Dashboard</strong>
+        </h2>
+
+    </div>
+
+
+    <div class="dashboard">
+
+        <div class="metric">
+            <div class="metric-icon purple">◉</div>
+            <span>Products Viewed</span>
+            <strong id="viewedCount">0</strong>
+            <small>This session</small>
+        </div>
+
+        <div class="metric">
+            <div class="metric-icon blue">✦</div>
+            <span>Recommendations</span>
+            <strong id="recommendCount">0</strong>
+            <small>AI matches generated</small>
+        </div>
+
+        <div class="metric">
+            <div class="metric-icon pink">♡</div>
+            <span>Favourites</span>
+            <strong id="favMetric">0</strong>
+            <small>Saved products</small>
+        </div>
+
+        <div class="metric">
+            <div class="metric-icon cyan">◎</div>
+            <span>Best Match</span>
+            <strong id="bestMatch">—</strong>
+            <small>Highest similarity</small>
+        </div>
+
+    </div>
+
+
+    <div class="recent">
+
+        <div class="recent-box">
+
+            <h3>Recently Viewed</h3>
+
+            <div id="recentProducts">
+                <p class="empty-recent">
+                    No recently viewed products.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="recent-box">
+
+            <h3>Recommendation Weights</h3>
+
+            <div class="progress-item">
+                <span>Category</span>
+                <div><i style="width:90%"></i></div>
+                <b>30%</b>
+            </div>
+
+            <div class="progress-item">
+                <span>Features</span>
+                <div><i style="width:90%"></i></div>
+                <b>30%</b>
+            </div>
+
+            <div class="progress-item">
+                <span>Brand</span>
+                <div><i style="width:45%"></i></div>
+                <b>15%</b>
+            </div>
+
+            <div class="progress-item">
+                <span>Price</span>
+                <div><i style="width:45%"></i></div>
+                <b>15%</b>
+            </div>
+
+            <div class="progress-item">
+                <span>Colour</span>
+                <div><i style="width:30%"></i></div>
+                <b>10%</b>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <div class="section-title center">
+
+        <span>ABOUT THE PROJECT</span>
+
+        <h2>
+            Built for a
+            <strong>B.Tech AIML Project</strong>
+        </h2>
+
+        <p>
+            A practical demonstration of content-based filtering
+            using product metadata and similarity scoring.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-card">
+            <span>01</span>
+            <h3>Problem Statement</h3>
+            <p>
+                Online stores contain many products, making it difficult
+                to quickly discover relevant alternatives.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <span>02</span>
+            <h3>Objective</h3>
+            <p>
+                Recommend similar products using measurable similarities
+                in product content.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <span>03</span>
+            <h3>Technology Used</h3>
+            <p>
+                HTML5, CSS3 and JavaScript with a client-side
+                recommendation algorithm.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <span>04</span>
+            <h3>Future Scope</h3>
+            <p>
+                Real databases, user profiles, machine learning models,
+                embeddings and live shopping APIs.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <div class="footer-logo">
+                ✦ Smart<span>Cart</span> AI
+            </div>
+
+            <p>
+                Discover Products You'll Love —
+                Powered by Smart Recommendations.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>Quick Links</h4>
+
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#recommendations">Recommendations</a>
+            <a href="#dashboard">Dashboard</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Project</h4>
+
+            <a href="#how">How It Works</a>
+            <a href="#about">About</a>
+            <a href="#recommendations">AI System</a>
+
+        </div>
+
+
+        <div>
+
+            <h4>Technology</h4>
+
+            <p>HTML5</p>
+            <p>CSS3</p>
+            <p>JavaScript</p>
+            <p>Content-Based Filtering</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        ©️ 2026 SmartCart AI · B.Tech AIML Project
+
+    </div>
+
+</footer>
+
+
+<!-- ================= PRODUCT MODAL ================= -->
+
+<div class="modal" id="productModal">
+
+    <div class="modal-overlay"></div>
+
+    <div class="modal-box">
+
+        <button class="close" id="closeModal">×</button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<div id="toastContainer"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
